@@ -1,0 +1,26 @@
+		<div class="api-doc-section" >
+			<div>
+			  <form role="form" class="custom-inputs" id="addForm">
+				  <div class="form-group">
+					  <label>Template Name</label>
+					  <input type="text" name="template" class="form-control">
+				  </div>				  
+				  <div id="fieldContainer">
+				  <div class="form-group">
+					  <label>Field Name</label>
+					  <input type="text" name="name[]" class="form-control">
+				  </div>
+				  </div>
+				  
+				 <button type="button" id="addField">+ add description field</button> 
+				 <button type="button" id="addFile">+ add upload image or file field</button> 
+				 <button type="button" id="addCategory">+ add category widget</button> 
+
+				  <button type="submit" class="btn btn-lg btn-block btn-primary btn-primary-inverse">Add</button>
+			  </form>
+			</div>
+			
+			<ul id="templates_list">
+			
+			</ul>
+		 </div>	

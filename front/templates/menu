@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#home">Start Bootstrap</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<ul class="nav navbar-nav">
+			<li><a data-tmpl="shopping_cart" href="#about">About</a>
+			</li>
+			<li><a data-tmpl="catalog" href="#services">Catalogue</a>
+			</li>
+			<li><a data-tmpl="shopping_cart" href="#contact">Contact</a>
+			</li>			
+			<li><a data-tmpl="shopping_cart" href="#shopping_cart">Shopping Cart</a>
+			</li>			
+			<li style="color:white;"><span>Remember my shopping on this device:</span> <span class="save_to_local_db">ON</span>
+			</li>
+		</ul>
+	</div>
+	<!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->

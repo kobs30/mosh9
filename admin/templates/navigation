@@ -1,0 +1,17 @@
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Mosh Admin</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#" data-tmpl="products">Products</a></li>
+            <li><a href="#" data-tmpl="categories" >Categories</a></li>
+            <li><a href="#" data-tmpl="reports">Reports</a></li>
+            <li><a href="#" data-tmpl="admin_templates">Product Templates</a></li>
+          </ul> 
+        </div><!--/.nav-collapse -->

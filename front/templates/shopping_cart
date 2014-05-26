@@ -1,0 +1,22 @@
+<div class="col-sm-4 col-lg-4 col-md-4">
+	<table class="table">  
+        <thead>  
+          <tr>  
+            <th>Student-ID</th>  
+            <th>First Name</th>  
+            <th>Last Name</th>  
+            <th>Grade</th>  
+          </tr>  
+        </thead>  
+        <tbody> 
+{{#data}}		
+          <tr>  
+            <td>{{item_incart_internal_id}}</td>  
+            <td>Rammohan </td>  
+            <td>Reddy</td>  
+            <td>A+</td>  
+          </tr>
+{{/data}}		  
+        </tbody>  
+	</table>  
+</div>
