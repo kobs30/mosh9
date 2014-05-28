@@ -55,9 +55,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li data-tmpl="home" class="active"><a href="incl.php">Tutorial</a></li>
-          <!--  <li data-tmpl="about" ><a href="#create_wallet">Create Wallet</a></li>
-            <li data-tmpl="contact"><a href="#recharge_wallet">Recharge Wallet</a></li>-->
+            <li data-tmpl="home" class="active"><a href="tutorial.php">Tutorial</a></li>
+            <li data-tmpl="about" ><a href="index.php">API list</a></li>
+             <!--  <li data-tmpl="contact"><a href="#recharge_wallet">Recharge Wallet</a></li>-->
           </ul> 
         </div><!--/.nav-collapse -->
       </div>
