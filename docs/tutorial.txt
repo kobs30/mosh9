@@ -1,0 +1,121 @@
+How to use MOSH9
+
+1. Create html page with a form describe your product.
+You can use any field in this form like a product_id, product_specification, price etc.
+<html>
+<head>
+</head>
+<body>
+<form>
+<input type="hidden" name="product_id">
+Name <input type="text" name="product_name"><br>
+Color <input type="text" name="product_color"><br>
+Description <input type="text" name="product_description"><br>
+</form>
+</body>
+</html>
+
+2. Include mosh.lib.js, jquery.js, jstorage.js and create initial function and form submit function. 
+Place this functions into the jquery document ready. 
+<html>
+<head>
+</head>
+<body>
+<form class="addItemToCart">
+<input type="hidden" name="product_id">
+Name <input type="text" name="product_name"><br>
+Color <input type="text" name="product_color"><br>
+Description <input type="text" name="product_description"><br>
+<input type="submit" value="ADD TO CART">
+</form>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jstorage.js"></script>
+<script src='http://vmishchenko.com/mosh/cdn/mosh.lib.js'></script>
+<script>
+$(document).ready(function(){
+			$_MOSH_user_id = $.jStorage.get('$_MOSH_user_id');
+			if (!$_MOSH_user_id) {
+				_mosh_init('http://vmishchenko.com/mosh/api/api.php',false,function(){
+				$.jStorage.set("$_MOSH_API_URL",$_MOSH_API_URL);
+				$.jStorage.set("$_MOSH_TOKEN",$_MOSH_TOKEN);
+				$.jStorage.set("$_MOSH_user_id",$_MOSH_user_id);
+				$.jStorage.set("$_MOSH_cart_id",$_MOSH_cart_id);
+				}); 
+			} else {
+					$_MOSH_API_URL = $.jStorage.get("$_MOSH_API_URL");
+					$_MOSH_TOKEN = $.jStorage.get("$_MOSH_TOKEN");
+					$_MOSH_user_id = $.jStorage.get("$_MOSH_user_id");
+					$_MOSH_cart_id = $.jStorage.get("$_MOSH_cart_id");
+			}
+			
+			$(document).on('submit','.addItemToCart',function(){
+				_mosh_add_item($(this),'updateCart');
+				return false;
+			});
+			
+		});
+		
+		function updateCart(data) {
+			console.log(data);
+		}
+</script>
+</body>
+
+
+</html>
+
+3. Now we need to create shopping cart page where we'll display user cart with all choosing item.
+To do it we need to call _mosh_get_carts js function and create diplayCart callback function.
+Place this functions into the _mosh_init. 
+<html>
+<head>
+</head>
+<body>
+<div class="shoppingCart">
+
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jstorage.js"></script>
+<script src='http://vmishchenko.com/mosh/cdn/mosh.lib.js'></script>
+<script>
+$(document).ready(function(){
+			$_MOSH_user_id = $.jStorage.get('$_MOSH_user_id');
+			if (!$_MOSH_user_id) {
+				_mosh_init('http://vmishchenko.com/mosh/api/api.php',false,function(){
+				$.jStorage.set("$_MOSH_API_URL",$_MOSH_API_URL);
+				$.jStorage.set("$_MOSH_TOKEN",$_MOSH_TOKEN);
+				$.jStorage.set("$_MOSH_user_id",$_MOSH_user_id);
+				$.jStorage.set("$_MOSH_cart_id",$_MOSH_cart_id);
+				}); 
+			} else {
+					$_MOSH_API_URL = $.jStorage.get("$_MOSH_API_URL");
+					$_MOSH_TOKEN = $.jStorage.get("$_MOSH_TOKEN");
+					$_MOSH_user_id = $.jStorage.get("$_MOSH_user_id");
+					$_MOSH_cart_id = $.jStorage.get("$_MOSH_cart_id");
+					_mosh_get_carts('displayCart');
+			}
+			
+			$(document).on('submit','.addItemToCart',function(){
+				_mosh_add_item($(this),'updateCart');
+				return false;
+			});
+			
+		});
+		
+		function displayCart(data) {
+			var html = '';
+			var items = data[0].items;
+			console.log(items);
+			console.log(items.length);
+			for (var i=items.length-1; i>=0; i--) {
+				html += items[i].product_name+'<br>';
+			}
+			$('.shoppingCart').html(html);
+		}
+</script>
+</body>
+
+
+</html>

@@ -16,7 +16,6 @@ function _mosh_init(api_url,user_id,f){
 			if (user_id) _mosh_new_token_and_cart(user_id);
 			else _mosh_new_token_and_cart();
 };
-
 function _mosh_init_admin(api_url,admin_token){
 			$_MOSH_API_URL = api_url;
 			$_MOSH_TOKEN = admin_token;
@@ -75,6 +74,7 @@ function _mosh_w(thedata,callBack) {
 
 function _mosh_get_products(callBack,param) {
 	if (!param) param = {}; 
+
 	_mosh_call_api('get_products',param,'_mosh_w',callBack);
 }
 
@@ -105,18 +105,21 @@ function _mosh_setTokenUserAddCart(data,callBack) {
 	$_MOSH_user_id = data.user_id;
 	_mosh_new_cart(false,$_INIT_ON);
 }
-
 function _mosh_new_token(user_id) {
 	var param = {};
 	if (user_id) param.user_id = user_id;
 	_mosh_call_api('get_token',param,'_mosh_w','_mosh_setTokenAndUser');
 }
 
-function _mosh_new_cart(user_id) {
+ffunction _mosh_new_cart(user_id) {
 	var param = {};
 	if (user_id) param.user_id = user_id;
 	else param.user_id = $_MOSH_user_id;
 	_mosh_call_api('new_cart',param,'_mosh_w','_mosh_set_cart');
+	if (typeof $_INIT_ON == 'function') {
+		$_INIT_ON();
+		$_INIT_ON = 'DONE';
+	}
 }
 
 function _mosh_set_token(data) {
@@ -126,10 +129,6 @@ function _mosh_set_token(data) {
 
 function _mosh_set_cart(data) {
 	$_MOSH_cart_id = data.cart_id;
-	if (typeof $_INIT_ON == 'function') {
-		$_INIT_ON();
-		$_INIT_ON = 'DONE';
-	}
 	return data;
 }
 
@@ -140,6 +139,8 @@ function _mosh_add_item(frm,callBack) {
 	_mosh_call_api('add_item',param,'_mosh_w',callBack);
 	return;
 }
+
+
 
 
 
