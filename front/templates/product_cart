@@ -1,17 +1,17 @@
 {{#data}}
 <div class="col-sm-4 col-lg-4 col-md-4">
 	<div class="thumbnail">
-		<img src="http://vmishchenko.com/mosh/api/uploads/{{files.1}}" alt="">
+		<img src="http://dvorale.com/MOSH9/api/uploads/{{files.0}}" alt="">
 		<div class="caption">
-			<h4 class="pull-right">${{price}}</h4>
-			<h4><a href="#">{{name}}</a>
+			<h4 class="pull-right">${{Price}}</h4>
+			<h4><a href="#">{{Product}}</a>
 			</h4>
 			<p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 		</div>
 		<div class="ratings">
 			<form class="product_form">
-			<input type="hidden" name="name" value="{{name}}">
-			<input type="hidden" name="price" value="{{price}}">
+			<input type="hidden" name="name" value="{{Product}}">
+			<input type="hidden" name="price" value="{{Price}}">
 			<input type="hidden" name="product_id" value="{{internal_id}}">
 			<p class="pull-right"><button type="submit" >Add to Cart</button></p>
 			</form>

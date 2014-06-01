@@ -118,7 +118,7 @@
 			$__SAVE_TO_LOCAL_DB = true;
 			$_MOSH_user_id = $.jStorage.get('$_MOSH_user_id');
 			if (!$_MOSH_user_id) {
-				_mosh_init('http://vmishchenko.com/mosh/api/api.php',false,function(){
+				_mosh_init('http://dvorale.com/MOSH9/api/api.php',false,function(){
 					_mosh_loadTemplate('menu',$('#navigation_container'));
 					_mosh_get_products('displayProducts');//_mosh_call_api('get_products',{},'_mosh_w','displayProducts');	
 					if ($__SAVE_TO_LOCAL_DB) {
@@ -182,6 +182,7 @@
 		}
 		
 		function displayProducts(data) {
+		console.log(data);
 			_mosh_loadTemplate('product_cart',$('#products_list'),{'data':data});
 		}
 		

@@ -55,7 +55,7 @@
         <script src='js/mosh.lib.js'></script>
 	<script>
 		$(document).ready(function(){
-			_mosh_init_admin('http://vmishchenko.com/mosh/api/api.php','ADMIN_TOKEN_535erEWRE58asEDF746tdlgfogk');
+			_mosh_init_admin('http://dvorale.com/MOSH9/api/api.php','ADMIN_TOKEN_535erEWRE58asEDF746tdlgfogk');
 			
 			_mosh_loadTemplate('navigation',$('#navigation_container'));
 			

@@ -77,7 +77,7 @@ ini_set('error_reporting', E_ALL);
 	How to use MOSH9
 <ul>
 <li>
-1.  Create html page with a form describing your product. You can use any field in this form like  product_id, product_specification, price etc. and include mosh.lib.js, jquery.js, jstorage.js and create initial function and form submit function. Place these functions into the jquery $(document).ready
+1.  Create html page with a form describing your product. You can add any field in this form like  product_id, product_specification, price etc. Include mosh.lib.js, jquery.js, jstorage.js and create initial function and form submit function. Place these functions into the jquery $(document).ready
 <p>
 File product_form.php
 
