@@ -17,4 +17,5 @@
 {{/data}}		  
         </tbody>  
 	</table>  
+	Total:{{TOTAL}}
 </div>

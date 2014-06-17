@@ -40,15 +40,15 @@
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Printable</a>
-                    <a href="#" class="list-group-item">Cupcake Wrappers</a>
-                    <a href="#" class="list-group-item">Authentic Dragon Bones</a>
+                    <a href="#" data-tmpl="tutorial" class="list-group-item">Tutorial</a>
+                    <a href="#" data-tmpl="apilist" class="list-group-item">API list</a>
+                    <a href="#" data-tmpl="faq" class="list-group-item">F.A.Q.</a>
                 </div>
             </div>
 
             <div class="col-md-9">
 
-                <div class="row carousel-holder">
+               <!--  <div class="row carousel-holder">
 
                     <div class="col-md-12">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -67,7 +67,7 @@
                                 <div class="item">
                                     <img class="slide-image" src="http://placehold.it/800x300" alt="">
                                 </div>
-                            </div>
+                            </div> 
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                             </a>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
 
                 <div class="row" id="products_list">
 
@@ -159,22 +159,33 @@
 				return false;
 			});
 			
-			$(document).on('click','.navbar-nav a',function(){
+			$(document).on('click','.navbar-nav a, .list-group a',function(){
 				var template = $(this).attr('data-tmpl');
 				var f = false;
 				if (template == 'shopping_cart') {
 					_mosh_get_carts('displayCart');// _mosh_call_api('get_carts',{'user_id':$_MOSH_user_id},'_mosh_w','displayCart');	
+					return;
 				}
-				else {
-					if (template == 'catalog') _mosh_get_products('displayProducts'); //_mosh_call_api('get_products',{},'_mosh_w','displayProducts');	
-					else _mosh_loadTemplate(template,$('#products_list'),f);
+				if (template == 'catalog') {
+					_mosh_get_products('displayProducts'); //_mosh_call_api('get_products',{},'_mosh_w','displayProducts');	
+					return;
 				}
+				_mosh_loadTemplate(template,$('#products_list'),f);
 			});
 		});
 		
 		function displayCart(data) {
 		console.log(data[0].items);
-			_mosh_loadTemplate('shopping_cart',$('#products_list'),{'data':data[0].items});
+			var TOTAL = function() {
+				var count = 0;
+			   for(var i=0, n=data[0].items.length; i < n; i++) 
+			   { 
+					console.log(data[0].items[i].price);
+				  count += parseFloat(data[0].items[i].price); 
+			   }
+			   return count;
+			}
+			_mosh_loadTemplate('shopping_cart',$('#products_list'),{'data':data[0].items,'TOTAL':TOTAL()});
 		}
 		
 		function addToCart(product) {

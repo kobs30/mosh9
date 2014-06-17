@@ -12,11 +12,11 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li><a data-tmpl="shopping_cart" href="#about">About</a>
+			<li><a data-tmpl="about" href="#about">About</a>
 			</li>
 			<li><a data-tmpl="catalog" href="#services">Catalogue</a>
 			</li>
-			<li><a data-tmpl="shopping_cart" href="#contact">Contact</a>
+			<li><a data-tmpl="contact" href="#contact">Contact</a>
 			</li>			
 			<li><a data-tmpl="shopping_cart" href="#shopping_cart">Shopping Cart</a>
 			</li>			

@@ -29,7 +29,7 @@ function _mosh_loadTemplate(_tmplt,Container,context,callBkF) {
 	var html = Mustache.to_html(source,context);
 	Container.html(html);
 	if (typeof callBkF == 'function') callBkF();
- } catch(e) { console.log('error '+e);  _mosh_loadTemplate('error',Container); }
+ } catch(e) { console.log('error '+e);  _mosh_loadTemplate('error',Container,{'tmpl':_tmplt,'context':context,'callBack':callBkF}); }
 }
 
 function _mosh_call_api(method,param,callback,callbackparam) {

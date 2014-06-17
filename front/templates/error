@@ -1,0 +1,10 @@
+<div class="container" id="content">
+<h3>Error!</h3>
+Sorry,  missed template.
+<p>
+Details:<br>
+template: <b>{{tmpl}}</b><br>
+context: <b>{{context}}</b><br>
+callBack: <b>{{callBack}}</b><br>
+</p>
+</div>
